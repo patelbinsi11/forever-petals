@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Checkout</h1>
+<form method="post" class="box">
+  <input name="name" placeholder="Full name" required>
+  <input name="phone" placeholder="Phone number" pattern="[0-9]{10}" required>
+  <textarea name="address" placeholder="Full address" required></textarea>
+  <label><input type="radio" name="payment" value="COD" checked> Cash on Delivery</label>
+  <label><input type="radio" name="payment" value="UPI"> UPI (pay to <b>{{ upi }}</b>)</label>
+  <input name="txn" placeholder="UPI transaction ID (only if UPI)">
+  <h3>Total: ₹{{ total }}</h3>
+  <button class="btn">Place Order</button>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% if oid %}
+<h1>Order Placed 🎉</h1>
+<p>Thank you! Your order number is <b>#{{ oid }}</b>. Aapne WhatsApp par contact karishu.</p>
+<a class="btn" href="/">Continue Shopping</a>
+{% else %}
+<h1>All Orders</h1>
+<table>
+<tr><th>#</th><th>Name</th><th>Phone</th><th>Address</th><th>Pay</th><th>Txn</th><th>Total</th><th>Items</th></tr>
+{% for o in orders %}
+<tr><td>{{ o.id }}</td><td>{{ o.name }}</td><td>{{ o.phone }}</td><td>{{ o.address }}</td>
+<td>{{ o.payment }}</td><td>{{ o.txn }}</td><td>₹{{ o.total }}</td><td>{{ o['items'] }}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
+{% endblock %}

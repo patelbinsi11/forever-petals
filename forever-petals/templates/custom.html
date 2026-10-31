@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Make Your Own Bouquet 💐</h1>
+<form method="post" class="box">
+  <label>Flower</label>
+  <select name="flower">{% for f in flowers %}<option value="{{ f.id }}">{{ f.name }} - ₹{{ f.price }}</option>{% endfor %}</select>
+  <label>Color</label>
+  <select name="color"><option>Red</option><option>Pink</option><option>Yellow</option><option>White</option><option>Purple</option><option>Mixed</option></select>
+  <label>Number of stems</label>
+  <input type="number" name="stems" value="6" min="1" max="100">
+  <label>Wrapping</label>
+  <select name="wrap">{% for w, pr in wraps.items() %}<option value="{{ w }}">{{ w }} (+₹{{ pr }})</option>{% endfor %}</select>
+  <label>Message card (optional)</label>
+  <textarea name="message" rows="3"></textarea>
+  <button class="btn">Add to Cart</button>
+</form>
+{% endblock %}

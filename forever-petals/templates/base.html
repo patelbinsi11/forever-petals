@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forever Petals</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">🌸 Forever Petals</a>
+  <div>
+    <a href="/">Shop</a>
+    <a href="/custom">Custom Bouquet</a>
+    <a href="/cart">Cart ({{ session.get('cart', [])|length }})</a>
+  </div>
+</nav>
+{% for m in get_flashed_messages() %}<p class="flash">{{ m }}</p>{% endfor %}
+<main>{% block content %}{% endblock %}</main>
+<footer>Handmade pipe cleaner flowers 🌷 | WhatsApp: 98XXXXXXXX</footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Our Handmade Flowers</h1>
+<div class="filters">
+  <a href="/">All</a><a href="/?cat=Flower">Flowers</a>
+  <a href="/?cat=Bouquet">Bouquets</a><a href="/?cat=Gift">Gifts</a>
+</div>
+<div class="grid">
+{% for p in items %}
+  <div class="card">
+    <div class="emoji">{{ p.emoji }}</div>
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.description }}</p>
+    <b>₹{{ p.price }}</b><br>
+    <a class="btn" href="/add/{{ p.id }}">Add to Cart</a>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
